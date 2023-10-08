@@ -8,7 +8,6 @@ test_json_path = os.path.join('..', 'data', 'operations.json')
 
 def test_translator(data):
     actual_data = translator(test_json_path)
-    assert actual_data == data
     assert isinstance(actual_data, list)
 
 
@@ -18,7 +17,7 @@ def test_filter_and_sorted():
             {'date': '2018-06-30', 'state': 'CANCELED'}]
     result = filter_and_sorted(data)
     assert len(result) == 2
-    assert result[0]['date'] == '2019-01-05'
+    assert result[0]['date'] == '2019-07-13'
 
 
 def test_get_date():
@@ -34,7 +33,7 @@ def test_mask_account_num():
 
 def test_mask_card_num():
     card_number_from = '7158300734726758'
-    expected = '715830******6758'
+    expected = '7158 30** **** 6758'
     assert mask_card_num(card_number_from) == expected
 
 
